@@ -11,5 +11,17 @@ App({
      */
     onLaunch() {
         qcloud.setLoginUrl(config.service.loginUrl);
+        wx.login({
+            success: function(res){
+                if(res.code){
+                    wx.redirectTo({
+                        url:'pages/introduction/intro'
+                    })
+                }
+                else{
+                    console.log('获取登录状态失败' + res.errMsg);
+                }
+            }
+        })
     }
 });

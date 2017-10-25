@@ -1,12 +1,14 @@
 {
-    "pages": [
+    "pages": [           
         "pages/index/index",
-        "pages/chat/chat"
+        "pages/chat/chat",
+        "pages/question/question",
+        "pages/introduction/intro"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#333",
-        "navigationBarTitleText": "腾讯云小程序解决方案",
+        "navigationBarTitleText": "我的测试",
         "navigationBarTextStyle": "white"
     }
 }

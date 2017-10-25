@@ -1,0 +1,17 @@
+<a href="../index/index">主页</a>
+<form bindsubmit="formSubmit">
+    <view class="test" wx:for="{{testquestions}}" wx:for-item="questionitem">
+        <text>{{index}}</text>
+        <image src="{{questionitem.imageurl}}" />
+        <text>{{questionitem.content}}</text>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{choices}}" wx:for-item="choice">
+                <radio value="{{choice.content}}" 
+                checked="{{choice.checked}}"/>{{choice.content}}
+            </label>
+        </radio-group>
+    </view>
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+    </view>
+</form>
