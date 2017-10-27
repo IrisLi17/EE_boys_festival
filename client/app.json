@@ -1,9 +1,8 @@
 {
     "pages": [           
-        "pages/index/index",
-        "pages/chat/chat",
+        "pages/introduction/intro",
         "pages/question/question",
-        "pages/introduction/intro"
+        "pages/score/score"
     ],
     "window": {
         "backgroundTextStyle": "light",

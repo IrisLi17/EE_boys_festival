@@ -5,23 +5,59 @@
 var qcloud = require('./vendor/wafer2-client-sdk/index');
 var config = require('./config');
 
+
+
+
+
+//app.js
 App({
-    /**
-     * 小程序初始化时执行，我们初始化客户端的登录地址，以支持所有的会话操作
-     */
-    onLaunch() {
-        qcloud.setLoginUrl(config.service.loginUrl);
-        wx.login({
-            success: function(res){
-                if(res.code){
-                    wx.redirectTo({
-                        url:'pages/introduction/intro'
+    onLaunch: function () {
+    //调用API从本地缓存中获取数据
+        var logs = wx.getStorageSync('logs') || []
+        logs.unshift(Date.now())
+        wx.setStorageSync('logs', logs)
+        wx.redirectTo({
+            url:'/pages/introduction/intro'
+        })
+    },
+    getUserInfo: function (cb) {
+        var that = this;
+        if (this.globalData.userInfo) {
+            typeof cb == "function" && cb(this.globalData.userInfo)
+        } else {
+        //调用登录接口
+            wx.login({
+                success: function () {
+                    //var appid = 'wx33a712f992e26dad';
+                    //var secret = 'e90e673f22cdff2e351a6e4ad445af7f';
+                    //wx.request({
+                    //    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=‘+<code></code>appid+’&secret=‘+secret+’&grant_type=authorization_code&js_code='+loginCode.code,  
+                    //    header: {  
+                    //        'content-type': 'application/json'  
+                    //    },  
+                    //    success: function(res) {  
+                    //      console.log(res.data.openid) //获取openid  
+                    //      that.globalData.openID = res.data.openid;
+                    //    }
+                    //})
+
+
+                    wx.getUserInfo({
+                        success: function (res) {
+                            that.globalData.userInfo = res.userInfo;
+                            typeof cb == "function" && cb(that.globalData.userInfo)
+                        }
                     })
                 }
-                else{
-                    console.log('获取登录状态失败' + res.errMsg);
-                }
-            }
-        })
-    }
-});
+            });
+        }
+    },
+    globalData: {
+        userInfo: null,
+        //openID: null
+        score: ''
+    },
+    setScore: function(score){
+        this.globalData.score = score;
+    } 
+})  

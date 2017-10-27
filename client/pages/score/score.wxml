@@ -1,0 +1,4 @@
+<view class="root">
+    <text class="title">你的得分</text>
+    <text id="score">{{score}}</text>
+</view>
