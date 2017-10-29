@@ -4,5 +4,11 @@
 	"miniprogramRoot": "./client",
 	"qcloudRoot": "./server",
 	"appid": "wx33a712f992e26dad",
-	"projectname": "boys_festival"
+	"projectname": "boys_festival",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true
+	}
 }
