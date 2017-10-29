@@ -27,19 +27,24 @@ App({
         } else {
         //调用登录接口
             wx.login({
-                success: function () {
-                    //var appid = 'wx33a712f992e26dad';
-                    //var secret = 'e90e673f22cdff2e351a6e4ad445af7f';
-                    //wx.request({
-                    //    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=‘+<code></code>appid+’&secret=‘+secret+’&grant_type=authorization_code&js_code='+loginCode.code,  
-                    //    header: {  
-                    //        'content-type': 'application/json'  
-                    //    },  
-                    //    success: function(res) {  
-                    //      console.log(res.data.openid) //获取openid  
-                    //      that.globalData.openID = res.data.openid;
-                    //    }
-                    //})
+                success: function (res1) {
+                    var appid = 'wx33a712f992e26dad';
+                    var secret = 'e90e673f22cdff2e351a6e4ad445af7f';
+                    var code = res1.code;
+                    wx.request({
+                        url: 'https://api.weixin.qq.com/sns/jscode2session?appid='+appid+'&secret='+secret+'&js_code='+code+'&grant_type=authorization_code',
+                        header: {  
+                            'content-type': 'application/json'  
+                        },  
+                        success: function(res2) {  
+                          console.log(res2.data.openid) //获取openid  
+                          that.globalData.openID = res2.data.openid;
+                        }
+                    })
+                    if(code){
+                        that.globalData.openID = code;
+                        console.log(that.globalData.openID);
+                    }
 
 
                     wx.getUserInfo({
@@ -54,7 +59,7 @@ App({
     },
     globalData: {
         userInfo: null,
-        //openID: null
+        openID: null,
         score: ''
     },
     setScore: function(score){
