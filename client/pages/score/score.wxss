@@ -10,8 +10,9 @@ text{
 .title{
     font-size: 72rpx;
     font-family: 'Microsoft Yahei', serif;
+    line-height: 3;
 }
 #score{
-    font-size: 72rpx;
+    font-size: 108rpx;
     font-family: Georgia, 'Times New Roman', serif;
 }

@@ -42,12 +42,16 @@ Page({
                 content:'E'
             }
         ],
+        answers:[
+            'A','B'
+        ],
         isComplete: true,
+        score: 0,
         response:'',
         userInfo:{},
     },
     onLoad: function(){
-        console.log("onload");
+        //console.log("onload");
         var that  = this;
         app.getUserInfo(function (userInfo){
             that.setData({
@@ -70,8 +74,8 @@ Page({
         // submit the form
         var that = this;
         var formData = e.detail.value;
-        console.log("submit triggled");
-        console.log(formData);
+        //console.log("submit triggled");
+        //console.log(formData);
         for (let i in formData){
             if(formData[i]===''){
                 //this.setData({
@@ -82,33 +86,45 @@ Page({
                 })
                 wx.showToast({
                     title: '还有未答完的题',
-                    image: '../../images/error2.png',
+                    image: '../../images/false.png',
                     duration: 2000
                 })
                 //reset();
                 break;
             }
         }
+        console.log(this.data.isComplete);
         if(this.data.isComplete == true) {    
             wx.request({
                 url:'https://hdatzw9n.qcloud.la/hello',
                 data: formData,
                 method: 'POST',
                 success: function(res){
-                    console.log(res.data);
+                    //console.log(res.data);
                     that.setData({response:res.data.data});
                 }
             });
-            app.setScore(100);//need to modify
+            this.checkAnswer(formData);
+            app.setScore(this.data.score);
+            console.log(app.globalData.userInfo);
+            console.log(app.globalData.score);
             wx.redirectTo({
                 url:'../score/score'
             })
         }
+        this.data.isComplete = true;
     },
     formReset: function reset(){
         console.log("reset");
         this.setData({
             isComplete: true
         })
+    },
+    checkAnswer: function(formData){
+        for(var i=0; i<this.data.answers.length; ++i){
+            if(formData['radio-group'+i] == this.data.answers[i]){
+                this.data.score += 100/this.data.answers.length;
+            }
+        }
     }
 })

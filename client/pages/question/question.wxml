@@ -1,9 +1,9 @@
 <view class="root">
 <p>{{userInfo.nickName}}</p>
-<image src="{{userInfo.avatarUrl}}" alt="此处有头像"/>
+<!--image src="{{userInfo.avatarUrl}}" alt="此处有头像"/!-->
 <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="test" wx:for="{{testquestions}}" wx:for-item="questionitem" wx:for-index = "questionindex">
-        <text class="title">{{questionindex}}</text>
+        <text class="title">第{{questionindex+1}}题</text>
         <image src="{{questionitem.imageurl}}" alt="此处有图片"/>
         <text class="content">{{questionitem.content}}</text>
         <radio-group name="radio-group{{questionindex}}" bindchange="radioChange">
