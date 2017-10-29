@@ -1,4 +1,9 @@
 <view class="root">
+    <view>
+        <text>{{openID}}</text>
+        <image src="{{userInfo.avatarUrl}}"/>
+    </view>
     <text class="title">你的得分</text>
     <text id="score">{{score}}</text>
+    <button type="primary" bindtap="redirect" wx:if="{{isShow}}">Retry</button>
 </view>

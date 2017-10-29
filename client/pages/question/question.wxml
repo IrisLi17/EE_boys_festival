@@ -1,5 +1,5 @@
 <view class="root">
-<p>{{userInfo.nickName}}</p>
+<!--p>{{openID}}</p!-->
 <!--image src="{{userInfo.avatarUrl}}" alt="此处有头像"/!-->
 <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="test" wx:for="{{testquestions}}" wx:for-item="questionitem" wx:for-index = "questionindex">

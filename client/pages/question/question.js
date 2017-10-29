@@ -4,7 +4,7 @@ Page({
         testquestions:[
             {
                 content:'这是第一个问题',
-                imageurl:'',
+                imageurl:'../../images/background-2025316__480.png',
                 select:[
                     '选项一',
                     '选项二',
@@ -15,11 +15,11 @@ Page({
             },
             {
                 content:'这是第二个问题',
-                imageurl:'',
+                imageurl:'../../images/u=170453941,2899967405&fm=27&gp=0.jpg',
                 select:[
-                    '选项一',
-                    '选项二',
-                    'hahah',
+                    'test1',
+                    'null',
+                    'none',
                     '4',
                     '5'
                 ]
@@ -49,17 +49,19 @@ Page({
         score: 0,
         response:'',
         userInfo:{},
+        openID: null
     },
     onLoad: function(){
         //console.log("onload");
         var that  = this;
         app.getUserInfo(function (userInfo){
             that.setData({
-                userInfo: userInfo
-                //openID: openid
+                userInfo: userInfo,
+                openID: app.globalData.openID
             })
         })
-        console.log(that.data.userInfo);
+        //this.data.openID = app.globalData.openID;
+        console.log(app.globalData.openID);
     },
 
     radioChange: function(e){
@@ -96,11 +98,11 @@ Page({
         console.log(this.data.isComplete);
         if(this.data.isComplete == true) {    
             wx.request({
-                url:'https://hdatzw9n.qcloud.la/hello',
+                url:'https://48299903.qcloud.la',
                 data: formData,
                 method: 'POST',
                 success: function(res){
-                    //console.log(res.data);
+                    console.log(res);
                     that.setData({response:res.data.data});
                 }
             });
