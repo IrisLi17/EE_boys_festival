@@ -16,9 +16,9 @@ App({
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
-        wx.redirectTo({
-            url:'/pages/introduction/intro'
-        })
+        //wx.redirectTo({
+        //    url:'/pages/introduction/intro'
+        //})
     },
     getUserInfo: function (cb) {
         var that = this;
