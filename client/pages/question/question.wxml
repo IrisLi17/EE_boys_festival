@@ -1,18 +1,21 @@
 <view class="root">
 <!--p>{{openID}}</p!-->
 <!--image src="{{userInfo.avatarUrl}}" alt="此处有头像"/!-->
+
 <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="test" wx:for="{{testquestions}}" wx:for-item="questionitem" wx:for-index = "questionindex">
         <text class="title">第{{questionindex+1}}题</text>
-        <image src="{{questionitem.imageurl}}" alt="此处有图片"/>
+        <image wx:if="{{questionitem.imageurl.length==1}}" src="{{questionitem.imageurl}}" mode="aspectFit" alt="此处有图片"/>
         <text class="content">{{questionitem.content}}</text>
-        <radio-group name="radio-group{{questionindex}}" bindchange="radioChange">
+        <radio-group name="radio-group{{questionindex}}" id="radio{{questionindex}}" bindchange="radioChange">
             <label class="radio" wx:for="{{choices}}" wx:for-item="choice" wx:for-index="choiceindex">
                 <radio value="{{choice.content}}"/>
                 <p>{{ questionitem.select[choiceindex] }}</p>
+                <image wx:if="{{ (questionitem.imageurl.length-1)*(questionitem.imageurl.length-choiceindex)>0 }}" src="{{questionitem.imageurl[choiceindex] }}" />
             </label>
         </radio-group>
     </view>
+    <progress percent="{{100.0*completeCount/answers.length}}" stroke-width="20"/>
     <view class="btn-area">
         <button formType="submit" type="primary">Submit</button>
         <button formType="reset" type="warn">Reset</button>

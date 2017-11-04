@@ -10,31 +10,37 @@
     margin-top: 20rpx;
     margin-bottom: 20rpx;
     border: none black 5rpx;
-    font-size: 40rpx;
-    display: flex;
+    /*display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;*/
+    padding: 30rpx;
 }
 .radio{
     margin-top: 12rpx;
     margin-bottom: 12rpx;
-    width: 500rpx;
+    width: 700rpx;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+.radio p{
+    font-size:36rpx;
+}
 image{
-    width: 400rpx;
+    width: 300rpx;
     height:300rpx;
+    margin-left: auto;
+    margin-right: auto;
 }
 .title{
-    line-height: 3;
+    line-height: 1;
     text-align:center;
-    font-size: 48rpx;
+    font-size: 72rpx;
 }
 .content{
     text-align: left;
-    line-height: 2;
+    line-height: 1;
+    font-size: 48rpx;
 }
 .btn-area{
     display:flex;
@@ -42,5 +48,8 @@ image{
 }
 button{
     margin: 20rpx 30rpx;
-    width: 250rpx;
+    width: 300rpx;
+}
+progress{
+    
 }
