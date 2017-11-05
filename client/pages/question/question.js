@@ -228,6 +228,188 @@ Page({
                     ''
                 ]
             },
+            {
+                content:'下列哪个是散粉刷？',
+                imageurl:[
+                    '../../images/65.5.1.png',
+                    '../../images/65.5.2.png',
+                    '../../images/65.5.3.png',
+                    '../../images/65.5.4.png',
+                ],
+                select:[
+                    '',
+                    '',
+                    '',
+                    ''
+                ]
+            },
+            {
+                content:'洗完脸使用护肤品的正确顺序是',
+                imageurl:null,
+                select:[
+                    '爽肤水-精华-乳液-面霜',
+                    '精华-爽肤水-面霜-乳液',
+                    '精华-爽肤水-乳液-面霜',
+                    '爽肤水-乳液-精华-面霜'
+                ]
+            },
+            {
+                content:'下列哪个不属于今年秋冬潘通发布的国际服装色彩流行色',
+                imageurl:null,
+                select:[
+                    '芭蕾舞鞋粉',
+                    '石榴红',
+                    '秋枫褐',
+                    '薰衣草紫'
+                ]
+            },
+            {
+                content:'当你的自行车后座上坐着你的妹子，而你在努力骑上好汉坡时，你的妹子说：你太辛苦啦~\
+                是不是我太重了，让你这么累呀？'+'\n'+'此时你应该说',
+                imageurl:null,
+                select:[
+                    '没关系，我骑得动。',
+                    '你一点不重呀。',
+                    '是啊，我快累死了。',
+                    '只是在好汉坡载你费力，在平路还是可以的。'
+                ]
+            },
+            {
+                content:'男生节时，女生送给你们早餐时，她们所期待的你们的反应是：',
+                imageurl:null,
+                select:[
+                    '我还没穿衣服呢就不下床了，装睡吧。',
+                    '走廊太冷了，为了保暖我就伸出一直胳膊拿进屋子然后迅速关门吧。【计划通|ω•`)',
+                    'emmmm她们买的早餐看起来好难吃，算了勉强收下吧。',
+                    '穿戴整齐地乖巧接过早餐，并真诚表示感谢。'
+                ]
+            },
+            {
+                content:'一个习惯披肩发的女生突然扎起了头发最有可能是因为什么？',
+                imageurl:null,
+                select:[
+                    '因为扎起来更好看',
+                    '因为扎起来更舒服',
+                    '因为她买了新的头绳',
+                    '因为她没洗头',
+                    '因为今年流行马尾辫'
+                ]
+            },
+            {
+                content:'裸妆是指什么？',
+                imageurl:null,
+                select:[
+                    '不化妆',
+                    '淡妆',
+                    '自然清新无化妆痕迹的妆',
+                    '裸色的妆',
+                    '简单快速的妆'
+                ]
+            },
+            {
+                content:'防晒霜、粉底、隔离液的涂抹顺序是？',
+                imageurl:null,
+                select:[
+                    '防晒、粉底、隔离',
+                    '粉底、防晒、隔离',
+                    '隔离、防晒、粉底',
+                    '防晒、隔离、粉底',
+                    '隔离、粉底、防晒'
+                ]
+            },
+            {
+                content:'女生生日时送什么礼物好？',
+                imageurl:null,
+                select:[
+                    '微信红包',
+                    '小礼物',
+                    '陪她逛街',
+                    '鲜花',
+                    '微信祝福'
+                ]
+            },
+            {
+                content:'以下哪个不属于时尚杂志呢？',
+                imageurl:null,
+                select:[
+                    'vogue',
+                    'elle',
+                    '时尚芭莎',
+                    'marie claire',
+                    'the New Yorker'
+                ]
+            },
+            {
+                content:'请选出下列与其他功能不同的化妆品',
+                imageurl:[
+                    '../../images/68.1.1.jpg',
+                    '../../images/68.1.2.jpg',
+                    '../../images/68.1.3.jpg',
+                    '../../images/68.1.4.jpg'
+                ],
+                select:[
+                    '',
+                    '',
+                    '',
+                    ''
+                ]
+            },
+            {
+                content:'你认为下图所示产品的价位在多少？'+'\n'+'提示：雅诗兰黛 15ml',
+                imageurl:[
+                    '../../images/68.2.jpg'
+                ],
+                select:[
+                    '100元以内',
+                    '100——300',
+                    '300——500',
+                    '500元以上'
+                ]
+            },
+            {
+                content:'一般情况下画底妆时，以下五种化妆品的使用顺序\
+                为'+'\n'+'①粉饼	  ②隔离霜	  ③爽肤水	  ④粉底液	   ⑤散粉',
+                imageurl:null,
+                select:[
+                    '①②③④⑤',
+                    '③②④①⑤',
+                    '③④①②⑤',
+                    '③④⑤①②',
+                    '③②④⑤①'
+                ]
+            },
+            {
+                content:'下列哪种发型被称为鱼骨辫？',
+                imageurl:[
+                    '../../images/68.4.1.jpg',
+                    '../../images/68.4.2.jpg',
+                    '../../images/68.4.3.jpg',
+                    '../../images/68.4.4.jpg',
+                    '../../images/68.4.5.jpg',
+                ],
+                select:[
+                    '',
+                    '',
+                    '',
+                    '',
+                    ''
+                ]
+            },
+            {
+                content:'以下几支口红哪一只最贵？',
+                imageurl:[
+                    '../../images/68.5.1.jpg',
+                    '../../images/68.5.2.jpg',
+                    '../../images/68.5.3.jpg',
+                    '../../images/68.5.4.jpg'
+                ],
+                select:[
+                    '',
+                    '',
+                    '',
+                    ''
+                ]
+            },
         ],
         choices:[
             {
@@ -251,8 +433,16 @@ Page({
         ],
         answers:[
             'E','D','A','D','A','E','B','B','E','D',
-            'D','C','C','D','D',
+            'D','C','C','D','D','C','C','A','C','B',
+            'A','D','B','D','D','C','D','C','E',
+            'B','C','B','C','D'
         ],
+        
+        selectedQuestions:[
+            0,2,3,5,10,7,1,15,14,12
+        ],
+        //animationData:{},
+        greeting:null,
         isComplete: true,
         score: 0,
         response:'',
@@ -283,6 +473,7 @@ Page({
             startTime:Date.parse(new Date())
         });
         console.log(this.data.startTime);
+        
     },
     radioChange: function(e){
         // handle radioChange
@@ -294,13 +485,36 @@ Page({
                 completeCount: cur+1
             });
         }
-        if(e.detail.value == this.data.answers[e.target.id[5]]){
+        if(e.detail.value == this.data.answers[e.target.id.substring(5)]){
             this.data.checkResult[e.target.id] = 1;
         }
         else{
             this.data.checkResult[e.target.id] = 0;
         }
         this.checkAnswer();
+        
+        //this.setData({
+        //    greeting:this.data.greetings[Math.floor(Math.random()*this.data.greetings.length)]
+        //});
+        //var animation = wx.createAnimation({
+        //    duration: 1000,
+        //    timingFunction: 'ease',
+        //});
+        //this.animation = animation;
+        //animation.translateY(-100).step();
+        //this.setData({
+        //    animationData:animation.export()
+        //})
+        //setTimeout(function(){
+        //    animation.translateY(100);
+        //    this.setData({
+        //        animationData:animation.export()
+        //    })
+        //}.bind(this),1000);
+        //this.setData({
+        //    animationData:animation.export()
+        //});
+        //console.log(this.data.animationData);
         console.log(this.data.haveAnswer);
         console.log(this.data.completeCount);
         console.log("score:"+this.data.score);
@@ -343,6 +557,7 @@ Page({
             app.setScore(this.data.score);
             console.log(app.globalData.userInfo);
             console.log(app.globalData.score);
+            
             var postData = {
                 id:this.data.openID,
                 nickName: this.data.userInfo.nickName,

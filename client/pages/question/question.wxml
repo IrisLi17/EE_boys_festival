@@ -1,25 +1,32 @@
 <view class="root">
 <!--p>{{openID}}</p!-->
 <!--image src="{{userInfo.avatarUrl}}" alt="此处有头像"/!-->
-
 <form bindsubmit="formSubmit" bindreset="formReset">
-    <view class="test" wx:for="{{testquestions}}" wx:for-item="questionitem" wx:for-index = "questionindex">
-        <text class="title">第{{questionindex+1}}题</text>
-        <image wx:if="{{questionitem.imageurl.length==1}}" src="{{questionitem.imageurl}}" mode="aspectFit" alt="此处有图片"/>
-        <text class="content">{{questionitem.content}}</text>
+    <view class="test" wx:for="{{selectedQuestions}}"  wx:for-item = "questionindex">
+        <text class="title">「 {{index+1}} 」</text>
+        <image wx:if="{{testquestions[questionindex].imageurl.length==1}}" src="{{testquestions[questionindex].imageurl}}" mode="aspectFit" alt="此处有图片"/>
+        <text class="content">{{testquestions[questionindex].content}}</text>
         <radio-group name="radio-group{{questionindex}}" id="radio{{questionindex}}" bindchange="radioChange">
             <!--label class="radio" wx:for="{{choices}}" wx:for-item="choice" wx:for-index="choiceindex"!-->
-            <label class="radio" wx:for="{{questionitem.select}}" wx:for-item="choice" wx:for-index="choiceindex">
+            <label class="radio" wx:for="{{testquestions[questionindex].select}}" wx:for-item="choice" wx:for-index="choiceindex">
                 <radio value="{{choices[choiceindex].content}}"/>
-                <p>{{ questionitem.select[choiceindex] }}</p>
-                <image wx:if="{{ (questionitem.imageurl.length-1)*(questionitem.imageurl.length-choiceindex)>0 }}" src="{{questionitem.imageurl[choiceindex] }}" />
+                <p>{{ testquestions[questionindex].select[choiceindex] }}</p>
+                <image wx:if="{{ (testquestions[questionindex].imageurl.length-1)*(testquestions[questionindex].imageurl.length-choiceindex)>0 }}" src="{{testquestions[questionindex].imageurl[choiceindex] }}" />
             </label>
         </radio-group>
     </view>
-    <progress percent="{{100.0*completeCount/answers.length}}" stroke-width="20"/>
+    <view class="progress">
+    <progress percent="{{100.0*completeCount/selectedQuestions.length}}" 
+    stroke-width="20" show-info activeColor="#502d50" background-color="ffffff"/>
+    </view>
     <view class="btn-area">
-        <button formType="submit" type="primary">Submit</button>
+        <button formType="submit" type="default">Submit</button>
         <button formType="reset" type="warn">Reset</button>
+    </view>
+    <!--view class="greet-area" animation="{{animationData}}">
+        <text>{{greeting}}</text>
+    </view!-->
+    <view class="blank">
     </view>
     <!--toast hidden="{{hiddenToast}}" duration="3000" bindchange="toastHidden" >还有未答完的题</toast!-->
 </form>

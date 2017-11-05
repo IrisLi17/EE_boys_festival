@@ -6,7 +6,7 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#333",
+        "navigationBarBackgroundColor": "#673b6e",
         "navigationBarTitleText": "我的测试",
         "navigationBarTextStyle": "white"
     }

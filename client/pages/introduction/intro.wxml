@@ -1,4 +1,4 @@
 <div class="root">
     <p class="title">欢迎来到男生节小测试</p>
-    <button type="primary" bindtap="start">开始测试</button>
+    <button  bindtap="start">开始测试</button>
 </div>

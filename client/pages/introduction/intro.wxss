@@ -1,17 +1,25 @@
-body{
-    background-image: url("");  
-}
 .root{
-    width: 80vw;
-    position: absolute;
-    background-image: url(u=170453941,2899967405&fm=27&gp=0.jpg);    
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-60%);
+    display: block;
+    width: 750rpx;
+    height:100vh;
+    background: #e2e2e2;
+    background: linear-gradient(to right,#e2e2e2, #f0f4ff, #e2e2e2);  
+    top:0;
+    left:0;
     text-align: center;
 }
 
 .title{
+    width:600rpx;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 48rpx;
     line-height: 3;
+}
+button{
+    color:white;
+    background:#673b6e;
+    width:400rpx;
+    margin-left: auto;
+    margin-right: auto;
 }

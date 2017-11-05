@@ -1,3 +1,12 @@
+.root{
+    width: 750rpx;
+    height:100vh;
+    background: #e2e2e2;
+    background: linear-gradient(to right,#e2e2e2, #f0f4ff, #e2e2e2);  
+    top:0;
+    left:0;
+    text-align: center;
+}
 view{
     display: flex;
     flex-direction: column;
@@ -25,4 +34,12 @@ image{
     font-family: Georgia, 'Times New Roman', serif;
     margin-top: 0;
     margin-bottom: 36rpx;
+}
+button{
+    display: block;
+    width: 300rpx;
+    margin-left: auto;
+    margin-right: auto;
+    background: #673b6e;
+    color: white;
 }
