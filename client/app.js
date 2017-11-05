@@ -20,7 +20,7 @@ App({
         //    url:'/pages/introduction/intro'
         //})
     },
-    getUserInfo: function (cb) {
+    getUserInfo: function (callback,cb) {
         var that = this;
         if (this.globalData.userInfo) {
             typeof cb == "function" && cb(this.globalData.userInfo)
@@ -39,12 +39,13 @@ App({
                         success: function(res2) {  
                           console.log(res2.data.openid) //获取openid  
                           that.globalData.openID = res2.data.openid;
+                          typeof callback == "function" && callback(that.globalData.openID);
                         }
                     })
-                    if(code){
-                        that.globalData.openID = code;
-                        console.log(that.globalData.openID);
-                    }
+                    //if(code){
+                        //that.globalData.openID = code;
+                    //    console.log(that.globalData.openID);
+                    //}
 
 
                     wx.getUserInfo({

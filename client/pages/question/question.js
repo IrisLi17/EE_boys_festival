@@ -36,8 +36,7 @@ Page({
                 ]
             },
             {
-                content:'以下护肤的正确顺序是:\
-                a洁面  b隔离  c乳液  d面霜  e爽肤水  f防晒  g精华液',
+                content:'以下护肤的正确顺序是:'+'\n'+'a洁面  b隔离  c乳液  d面霜  e爽肤水  f防晒  g精华液',
                 imageurl:null,
                 select:[
                     'abecgdf',
@@ -83,7 +82,7 @@ Page({
                 ]
             },
             {
-                content:'请问女生化妆的时候 a.眼妆 b.脸妆 c.唇妆 的步骤是',
+                content:'请问女生化妆的时候'+'\n'+'a.眼妆 b.脸妆 c.唇妆 的步骤是',
                 imageurl:null,
                 select:[
                     'abc',
@@ -147,15 +146,86 @@ Page({
             },
             {
                 content:'风陵渡和以下谁有关',
+                imageurl:null,
+                select:[
+                    '黄蓉',
+                    '郭芙',
+                    '郭襄',
+                    '小龙女',
+                    '以上都不是'
+                ]
+            },
+            {
+                content:'下列选项中，和其它选项属于不同类别的是：',
+                imageurl:null,
+                select:[
+                    '小胖丁',
+                    '萝卜丁',
+                    '小羊皮',
+                    '小灯泡',
+                    '在我的认知范围内以上都不是化妆品'
+                ]
+            },
+            {
+                content:'萝卜丁指的是',
                 imageurl:[
-                    '../../images/64.2.jpg'
+                    '../../images/64.5.1.jpg',
+                    '../../images/64.5.2.jpg',
+                    '../../images/64.5.3.jpg',
                 ],
                 select:[
-                    '暖手宝',
-                    '卸妆棉',
-                    '化妆棉',
-                    '葫芦娃',
-                    '以上没有正确答案'
+                    '',
+                    '',
+                    '',
+                    '都是',
+                    '都不是'
+                ]
+            },
+            {
+                content:'女生过生日应该送什么礼物？',
+                imageurl:null,
+                select:[
+                    '国林gg的亲笔签名电电书',
+                    '一块精心包装的面包板',
+                    '由三极管二极管拼装成的艺术作品',
+                ]
+            },
+            {
+                content:'卧蚕应该画在哪个位置？',
+                imageurl:null,
+                select:[
+                    '眼皮上，细细一条',
+                    '眼皮上，比较粗的一片',
+                    '紧贴眼睛下方，细细一条',
+                    '紧贴眼睛下方，比较粗的一片',
+                    '//可能会出现黑眼圈的位置',
+                    '画在桑叶上'
+                ]
+            },
+            {
+                content:'下列何种粉末具有较佳的遮盖力？',
+                imageurl:null,
+                select:[
+                    '二氧化钛',
+                    '碳酸钙',
+                    '滑石粉',
+                    '玉米淀粉',
+                    '以上都不是'
+                ]
+            },
+            {
+                content:'下列哪个是眉粉刷？',
+                imageurl:[
+                    '../../images/65.4.1.png',
+                    '../../images/65.4.2.png',
+                    '../../images/65.4.3.png',
+                    '../../images/65.4.4.png',
+                ],
+                select:[
+                    '',
+                    '',
+                    '',
+                    ''
                 ]
             },
         ],
@@ -174,10 +244,14 @@ Page({
             },
             {
                 content:'E'
+            },
+            {
+                content:'F'
             }
         ],
         answers:[
-            'E','D','A','D','A','E','B','B','E','D','D','C','C','D','D',
+            'E','D','A','D','A','E','B','B','E','D',
+            'D','C','C','D','D',
         ],
         isComplete: true,
         score: 0,
@@ -185,6 +259,7 @@ Page({
         userInfo:{},
         openID: null,
         haveAnswer:{},
+        checkResult:{},
         completeCount: 0,
         startTime:null,
         finishTime:null
@@ -192,31 +267,26 @@ Page({
     onLoad: function(){
         //console.log("onload");
         var that  = this;
-        app.getUserInfo(function (userInfo){
+        app.getUserInfo(function(id){
+            that.setData({
+                openID:id
+            });
+            console.log(that.data.openID);
+        },
+            function (userInfo){
             that.setData({
                 userInfo: userInfo,
-                openID: app.globalData.openID
-            })
-        })
-        //this.data.openID = app.globalData.openID;
-        console.log(app.globalData.openID);
-        //var temp={};
-        //for(var i=0;i<answers.length;++i){
-        //    temp["radio"+i] = 0;
-        //}
-        //this.setData({
-        //    haveAnswer:temp
-        //});
-        //console.log(this.data.haveAnswer);
+            });
+            console.log(that.data.userInfo);
+        });
         this.setData({
             startTime:Date.parse(new Date())
         });
         console.log(this.data.startTime);
     },
-
     radioChange: function(e){
         // handle radioChange
-        
+        console.log(e);
         if(this.data.haveAnswer[e.target.id] != 1){
             this.data.haveAnswer[e.target.id] = 1;
             var cur = this.data.completeCount;
@@ -224,8 +294,16 @@ Page({
                 completeCount: cur+1
             });
         }
+        if(e.detail.value == this.data.answers[e.target.id[5]]){
+            this.data.checkResult[e.target.id] = 1;
+        }
+        else{
+            this.data.checkResult[e.target.id] = 0;
+        }
+        this.checkAnswer();
         console.log(this.data.haveAnswer);
         console.log(this.data.completeCount);
+        console.log("score:"+this.data.score);
     },
     toastHidden:function(){
         this.setData({
@@ -261,11 +339,12 @@ Page({
         console.log(this.data.isComplete);
         if(this.data.isComplete == true) {    
             
-            this.checkAnswer(formData);
+            //this.checkAnswer(formData);
             app.setScore(this.data.score);
             console.log(app.globalData.userInfo);
             console.log(app.globalData.score);
             var postData = {
+                id:this.data.openID,
                 nickName: this.data.userInfo.nickName,
                 gender: this.data.userInfo.gender,
                 score: this.data.score,
@@ -290,6 +369,7 @@ Page({
         }
         this.data.isComplete = true;
     },
+
     formReset: function reset(){
         console.log("reset");
         this.setData({
@@ -298,11 +378,18 @@ Page({
             completeCount: 0
         })
     },
-    checkAnswer: function(formData){
-        for(var i=0; i<this.data.answers.length; ++i){
-            if(formData['radio-group'+i] == this.data.answers[i]){
-                this.data.score += 100/this.data.answers.length;
-            }
+
+    //check answer when trigger radio change
+    checkAnswer: function(){
+        //for(var i=0; i<this.data.answers.length; ++i){
+        //    if(formData['radio-group'+i] == this.data.answers[i]){
+        //        this.data.score += 100/this.data.answers.length;
+        //    }
+        //}
+        this.data.score = 0;
+        for(var key in this.data.checkResult){
+            this.data.score += 10*this.data.checkResult[key];
         }
+        
     }
 })
